@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-decoration-underline">Hello</h1>
+  <h1 class="text-decoration-underline">Ciao</h1>
   <div>{{ getApartment() }}</div>
 </template>
 

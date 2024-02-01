@@ -16,7 +16,7 @@ export default {
     };
   },
   methods: {
-    getApartment() {
+    getProfile() {
       try {
         axios.get(this.store.baseUrl + "profiles").then((response) => {
           this.profilesData = response.data;
@@ -27,24 +27,31 @@ export default {
       }
     },
   },
+  mounted() {
+    this.getProfile();
+  },
 };
 </script>
 
 <template>
   <Home />
-  <div
-    v-for="(profile, index) in profilesData"
-    :key="index"
-    class="card"
-    style="width: 18rem"
-  >
-    <img src="..." class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">{{ profile.services }}</h5>
-      <p class="card-text">
-        {{ profile.address }}
-      </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="container d-flex">
+    <div
+      v-for="(profile, index) in profilesData"
+      :key="index"
+      class="card"
+      style="width: 18rem"
+    >
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ profile.services }}</h5>
+        <p class="card-text">
+          {{ profile.address }}
+        </p>
+        <router-link :to="{ name: 'show' }" class="btn btn-primary"
+          >Vai alla show</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
